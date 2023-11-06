@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Candy Shop</title>
+</head>
+<body>
+  <header>
+    <h1>Enter Candy Details</h1>
+  </header>
+
+  <section class="container">
+    <form id="my-form" onsubmit="handleFormSubmit(event)">
+      <h1>Add Candy</h1>
+      <div class="msg"></div>
+        
+      <label for="name">Candy Name:</label>
+      <input type="text" id="name">
+      <label for="des">Description:</label>
+      <input type="text" id="des">
+      <label for="price">Price:</label>
+      <input type="number" id="price">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity">
+      <input class="btn" type="submit" value="Add Item">
+    </form>
+  </section>
+
+  <div id="candy-list"></div> <!-- This is the 'candy-list' element where the candies will be displayed -->
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="candy_shop.js"></script>
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const description = document.getElementById('des').value;
+      const price = document.getElementById('price').value;
+      const quantity = document.getElementById('quantity').value;
+      addCandy(name, description, price, quantity);
+    }
+    
+  </script>
+</body>
+</html>
